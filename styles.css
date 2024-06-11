@@ -1,7 +1,9 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #333;
+    background: #121212;
+    overflow-x: hidden;
 }
 
 #preloader {
@@ -54,13 +56,14 @@ body {
 }
 
 header {
-    background: #000;
+    background: rgba(0, 0, 0, 0.8);
     padding: 1rem 0;
     color: #fff;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
+    transition: background 0.5s;
 }
 
 nav {
@@ -103,21 +106,34 @@ nav {
     color: #fff;
     text-align: center;
     padding: 10rem 1rem;
+    position: relative;
 }
 
 .hero h1 {
     font-size: 3rem;
     margin: 0;
+    animation: fadeIn 2s;
 }
 
 .hero p {
     font-size: 1.5rem;
+    animation: fadeIn 2s 1s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .music-gallery, .events-list {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    animation: fadeInUp 1s;
 }
 
 .music-item, .event-item {
@@ -126,6 +142,14 @@ nav {
     flex: 1;
     min-width: 200px;
     text-align: center;
+}
+
+.page {
+    display: none;
+}
+
+#home.page {
+    display: block;
 }
 
 #contact-form {
@@ -159,4 +183,15 @@ footer {
     color: #fff;
     text-align: center;
     padding: 1rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
